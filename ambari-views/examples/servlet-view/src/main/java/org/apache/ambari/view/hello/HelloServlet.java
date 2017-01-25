@@ -69,7 +69,7 @@ public class HelloServlet extends HttpServlet {
     }
     writer.println("<h1>Hello " + name + "!</h1>");
     
-    String req = "curl -u admin:admin -H X-Requested-By:ambari http://localhost:8080/api/v1/clusters/hdp/services/HUE/components/HUE_SERVER";
+    String req = "curl -u admin:admin -H X-Requested-By:ambari http://localhost:8080/api/v1/clusters/hdp/services/HIVE/components/MYSQL_SERVER";
     Process p = Runtime.getRuntime().exec(req);
     BufferedReader buf = new BufferedReader(new InputStreamReader(p.getInputStream()));
     String line = "";
