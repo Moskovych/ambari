@@ -30,8 +30,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Map;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+//import java.io.BufferedReader;
+//import java.io.InputStreamReader;
 
 /**
  * Simple servlet for hello view.
@@ -69,19 +69,9 @@ public class HelloServlet extends HttpServlet {
     }
     writer.println("<h1>Hello " + name + "!</h1>");
     
-    String req = "curl -u admin:admin -H X-Requested-By:ambari http://localhost:8080/api/v1/clusters/hdp/services/HIVE/components/MYSQL_SERVER";
-    Process p = Runtime.getRuntime().exec(req);
-    BufferedReader buf = new BufferedReader(new InputStreamReader(p.getInputStream()));
-    String line = "";
-    String host = "";
-    while ((line=buf.readLine())!=null) {
-      if (line.contains("host_name")) {
-        String[] host_name = line.split(":");
-        host = host_name[1].replace("\"", "").replace(" ", "");
-      }
-    }
-    writer.println("<h2>Hue at server: <a href=\"http://" + host + ":8888/\" target=\"_blank\">http://" + host + ":8888/</a></h2>");
-    writer.println("<h2>JupyterHub at server:<a href=\"http://hostname:8000/\" target=\"_blank\">http://hostname:8000/</a></h2>");
+    writer.println("<h2>Hue at server: <a href=\"http://hue_host:8888/\" target=\"_blank\">http://hue_host:8888/</a></h2>");
+    writer.println("<h2>JupyterHub at server:<a href=\"http://jupyter_host:8000/\" target=\"_blank\">http://jupyter_host:8000/</a></h2>");
+    writer.println("<h2>Your HDFS homedir: \"hdfs://hdfs_namenode:8020/user/\"" + name + "/ </h2>");
   }
 }
 
