@@ -71,7 +71,7 @@ public class HelloServlet extends HttpServlet {
     
     writer.println("<h2>Hue at server: <a href=\"http://hue_host:8888/\" target=\"_blank\">http://hue_host:8888/</a></h2>");
     writer.println("<h2>JupyterHub at server:<a href=\"http://jupyter_host:8000/\" target=\"_blank\">http://jupyter_host:8000/</a></h2>");
-    writer.println("<h2>Your HDFS homedir: \"hdfs://hdfs_namenode:8020/user/\"" + name + "/ </h2>");
+    writer.println("<h2>Your HDFS homedir: hdfs://hdfs_namenode:8020/user/" + name + "/ </h2>");
   }
 }
 
